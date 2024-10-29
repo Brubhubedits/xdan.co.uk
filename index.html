@@ -3,54 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XDan - Home</title>
+    <title>XDan</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="title">
-        <!-- Replace with actual logo image if available -->
-        <img src="https://xdan.co.uk/logo.png" alt="XDan Logo" class="logo"> 
-        <h1>XDan</h1>
-    </header>
-    
-    <section class="content">
-        <div class="embed-section">
-            <h2>YouTube Videos</h2>
-            <div class="embed">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/4QleyhKnp-Q?si=o27uarbL1iuYDyhy" allowfullscreen></iframe>
-            </div>
-            <div class="embed">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/D-X5qZ33vx4?si=A1v4c5dNiiC8w9pN" allowfullscreen></iframe>
-            </div>
-            <div class="embed">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/2waEBFld8Ss?si=krwxd0MOu6SHBCFd" allowfullscreen></iframe>
-            </div>
-            <div class="embed">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/_oi2YWnxjow?si=MK0lK4t4lOQJ2I2S" allowfullscreen></iframe>
-            </div>
-            <div class="embed">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/o_r2I5kAqB8?si=kNy6MKsR6AHSeSqy" allowfullscreen></iframe>
+    <div class="container">
+        <div class="title">
+            <img src="logo.png" alt="XDan Logo" class="logo">
+            <h1>XDan</h1>
+        </div>
+        <div class="spotify-artist">
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/0YCoeqoiDdWGEanD2b3pp9?utm_source=generator" 
+            width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="embed-container">
+            <button id="youtube-toggle">Show Videos</button>
+            <div id="youtube-embeds" class="hidden">
+                <iframe src="https://www.youtube.com/embed/4QleyhKnp-Q" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/D-X5qZ33vx4" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/2waEBFld8Ss" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/_oi2YWnxjow" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/o_r2I5kAqB8" allowfullscreen></iframe>
             </div>
         </div>
-        
-        <div class="embed-section">
-            <h2>Spotify</h2>
-            <div class="embed">
-                <iframe src="https://open.spotify.com/embed/artist/0YCoeqoiDdWGEanD2b3pp9?utm_source=generator" width="100%" height="352" allowfullscreen></iframe>
-            </div>
-            <div class="embed">
-                <iframe src="https://open.spotify.com/embed/album/0iSPB0TO4PDqoJtD1URIqt?utm_source=generator" width="100%" height="152" allowfullscreen></iframe>
-            </div>
-            <div class="embed">
-                <iframe src="https://open.spotify.com/embed/album/0gxxvSvvl02pT4aJrDd2Q4?utm_source=generator" width="100%" height="152" allowfullscreen></iframe>
-            </div>
-            <div class="embed">
-                <iframe src="https://open.spotify.com/embed/album/3auJjgLKZ7BxGyuTa4nPNd?utm_source=generator" width="100%" height="152" allowfullscreen></iframe>
-            </div>
-            <div class="embed">
-                <iframe src="https://open.spotify.com/embed/album/6Xa6ecdjlneMTG1rFmYrFn?utm_source=generator" width="100%" height="152" allowfullscreen></iframe>
+        <div class="embed-container">
+            <button id="spotify-toggle">Show Spotify</button>
+            <div id="spotify-embeds" class="hidden">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/0iSPB0TO4PDqoJtD1URIqt" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media;"></iframe>
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/0gxxvSvvl02pT4aJrDd2Q4" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media;"></iframe>
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/3auJjgLKZ7BxGyuTa4nPNd" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media;"></iframe>
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/6Xa6ecdjlneMTG1rFmYrFn" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media;"></iframe>
             </div>
         </div>
-    </section>
+    </div>
+    <script src="main.js"></script>
 </body>
 </html>
