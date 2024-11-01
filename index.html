@@ -18,25 +18,19 @@
             <div class="embed-container">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/jJdrSeSgouw?si=XzpcdsMVOr-RdXjB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
-            <div class="embed-container">
+        </div>
+        
+        <!-- Velocity Songs Section -->
+        <div class="embed-container">
+            <button id="velocity-toggle">Show Velocity Songs</button>
+            <div id="velocity-embeds" class="hidden">
                 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1942702643&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
-                <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
-                    <a href="https://soundcloud.com/xdanfr" title="XDan" target="_blank" style="color: #cccccc; text-decoration: none;">XDan</a> · <a href="https://soundcloud.com/xdanfr/velocity" title="Velocity" target="_blank" style="color: #cccccc; text-decoration: none;">Velocity</a>
-                </div>
-            </div>
-            <div class="embed-container">
                 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1943754659&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
-                <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
-                    <a href="https://soundcloud.com/xdanfr" title="XDan" target="_blank" style="color: #cccccc; text-decoration: none;">XDan</a> · <a href="https://soundcloud.com/xdanfr/gonna-move" title="Gonna Move [DnB]" target="_blank" style="color: #cccccc; text-decoration: none;">Gonna Move [DnB]</a>
-                </div>
-            </div>
-            <div class="embed-container">
                 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1944557999&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
-                <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
-                    <a href="https://soundcloud.com/xdanfr" title="XDan" target="_blank" style="color: #cccccc; text-decoration: none;">XDan</a> · <a href="https://soundcloud.com/xdanfr/elysium" title="Elysium [FUTURE HOUSE]" target="_blank" style="color: #cccccc; text-decoration: none;">Elysium [FUTURE HOUSE]</a>
-                </div>
             </div>
         </div>
+        
+        <!-- Youtube Section -->
         <div class="embed-container">
             <button id="youtube-toggle">Show Videos</button>
             <div id="youtube-embeds" class="hidden">
@@ -47,6 +41,8 @@
                 <iframe src="https://www.youtube.com/embed/o_r2I5kAqB8" allowfullscreen></iframe>
             </div>
         </div>
+        
+        <!-- Spotify Section -->
         <div class="embed-container">
             <button id="spotify-toggle">Show Spotify</button>
             <div id="spotify-embeds" class="hidden">
@@ -58,6 +54,33 @@
             </div>
         </div>
     </div>
-    <script src="main.js"></script>
+    <script>
+        document.getElementById('velocity-toggle').addEventListener('click', function() {
+            var embeds = document.getElementById('velocity-embeds');
+            if (embeds.classList.contains('hidden')) {
+                embeds.classList.remove('hidden');
+            } else {
+                embeds.classList.add('hidden');
+            }
+        });
+
+        document.getElementById('youtube-toggle').addEventListener('click', function() {
+            var embeds = document.getElementById('youtube-embeds');
+            if (embeds.classList.contains('hidden')) {
+                embeds.classList.remove('hidden');
+            } else {
+                embeds.classList.add('hidden');
+            }
+        });
+
+        document.getElementById('spotify-toggle').addEventListener('click', function() {
+            var embeds = document.getElementById('spotify-embeds');
+            if (embeds.classList.contains('hidden')) {
+                embeds.classList.remove('hidden');
+            } else {
+                embeds.classList.add('hidden');
+            }
+        });
+    </script>
 </body>
 </html>
