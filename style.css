@@ -124,15 +124,23 @@ iframe {
     }
 }
 
-@media (min-width: 800px) {
-    .container {
-        max-width: 1000px;
-    }
-    iframe {
-        max-width: 45%;
-    }
+/* Velocity button and song glows */
+#velocity-toggle {
+    background-color: #ff5500;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
 }
-/* Velocity Section Styling */
+
+#velocity-toggle:hover {
+    background-color: #e04e00;
+}
+
 .velocity-section {
     background-color: #1e1e1e;
     border: 2px solid #ff5500;
@@ -149,21 +157,4 @@ iframe {
 
 .velocity-section .embed-container iframe {
     box-shadow: 0 0 10px #ff5500;
-}
-
-/* Embedding and Toggle for Velocity Songs */
-#velocity-toggle {
-    background-color: #ff5500;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-bottom: 10px;
-}
-
-#velocity-toggle:hover {
-    background-color: #e04e00;
 }
