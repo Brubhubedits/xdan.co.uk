@@ -3,33 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XDan</title>
+    <title>Embed Toggle</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <div class="title">
-            <img src="logo.png" alt="XDan Logo" class="logo">
-            <h1>XDan</h1>
+            <img src="logo.png" alt="Logo" class="logo">
+            <h1>Embed Toggle Example</h1>
         </div>
-        <!-- Velocity Section -->
-        <div class="velocity-section">
-            <h2>Velocity</h2>
-            <div class="embed-container">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/jJdrSeSgouw?si=XzpcdsMVOr-RdXjB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-        </div>
-        
-        <!-- Velocity Songs Section -->
-        <div class="embed-container">
-            <button id="velocity-toggle">Show Velocity Songs</button>
-            <div id="velocity-embeds" class="hidden">
-                <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1942702643&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
-                <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1943754659&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
-                <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1944557999&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
-            </div>
-        </div>
-        
+
         <!-- Youtube Section -->
         <div class="embed-container">
             <button id="youtube-toggle">Show Videos</button>
@@ -41,46 +24,28 @@
                 <iframe src="https://www.youtube.com/embed/o_r2I5kAqB8" allowfullscreen></iframe>
             </div>
         </div>
-        
+
         <!-- Spotify Section -->
         <div class="embed-container">
             <button id="spotify-toggle">Show Spotify</button>
             <div id="spotify-embeds" class="hidden">
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/0YCoeqoiDdWGEanD2b3pp9" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media;"></iframe>
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/0iSPB0TO4PDqoJtD1URIqt" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media;"></iframe>
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/0gxxvSvvl02pT4aJrDd2Q4" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media;"></iframe>
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/3auJjgLKZ7BxGyuTa4nPNd" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media;"></iframe>
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/6Xa6ecdjlneMTG1rFmYrFn" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media;"></iframe>
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/0YCoeqoiDdWGEanD2b3pp9" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media;"></iframe>
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/0iSPB0TO4PDqoJtD1URIqt" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media;"></iframe>
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/0gxxvSvvl02pT4aJrDd2Q4" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media;"></iframe>
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/3auJjgLKZ7BxGyuTa4nPNd" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media;"></iframe>
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/6Xa6ecdjlneMTG1rFmYrFn" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media;"></iframe>
+            </div>
+        </div>
+
+        <!-- Velocity Section -->
+        <div class="velocity-section">
+            <button id="velocity-toggle">Show Velocity</button>
+            <div id="velocity-embeds" class="hidden">
+                <iframe src="https://www.youtube.com/embed/some-video-id" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/another-video-id" allowfullscreen></iframe>
             </div>
         </div>
     </div>
-    <script>
-        document.getElementById('velocity-toggle').addEventListener('click', function() {
-            var embeds = document.getElementById('velocity-embeds');
-            if (embeds.classList.contains('hidden')) {
-                embeds.classList.remove('hidden');
-            } else {
-                embeds.classList.add('hidden');
-            }
-        });
-
-        document.getElementById('youtube-toggle').addEventListener('click', function() {
-            var embeds = document.getElementById('youtube-embeds');
-            if (embeds.classList.contains('hidden')) {
-                embeds.classList.remove('hidden');
-            } else {
-                embeds.classList.add('hidden');
-            }
-        });
-
-        document.getElementById('spotify-toggle').addEventListener('click', function() {
-            var embeds = document.getElementById('spotify-embeds');
-            if (embeds.classList.contains('hidden')) {
-                embeds.classList.remove('hidden');
-            } else {
-                embeds.classList.add('hidden');
-            }
-        });
-    </script>
+    <script src="main.js"></script>
 </body>
 </html>
