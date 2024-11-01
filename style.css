@@ -132,3 +132,21 @@ iframe {
         max-width: 45%;
     }
 }
+/* Velocity Section Styling */
+.velocity-section {
+    background-color: #1e1e1e;
+    border: 2px solid #ff5500;
+    border-radius: 12px;
+    box-shadow: 0 0 20px #ff5500;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.velocity-section h2 {
+    color: #ff5500;
+}
+
+.velocity-section .embed-container iframe {
+    box-shadow: 0 0 10px #ff5500;
+}
