@@ -3,9 +3,12 @@ document.addEventListener("DOMContentLoaded", function() {
     const youtubeEmbeds = document.getElementById("youtube-embeds");
     const spotifyToggle = document.getElementById("spotify-toggle");
     const spotifyEmbeds = document.getElementById("spotify-embeds");
+    const velocityToggle = document.getElementById("velocity-toggle");
+    const velocityEmbeds = document.getElementById("velocity-embeds");
 
     youtubeEmbeds.classList.add("hidden");
     spotifyEmbeds.classList.add("hidden");
+    velocityEmbeds.classList.add("hidden");
 
     function toggleVisibility(embeds, toggleButton, buttonTextShow, buttonTextHide) {
         const container = embeds.parentElement;
@@ -35,5 +38,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     spotifyToggle.addEventListener("click", function() {
         toggleVisibility(spotifyEmbeds, spotifyToggle, "Show Spotify", "Hide Spotify");
+    });
+
+    velocityToggle.addEventListener("click", function() {
+        toggleVisibility(velocityEmbeds, velocityToggle, "Show Velocity", "Hide Velocity");
     });
 });
