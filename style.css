@@ -150,3 +150,20 @@ iframe {
 .velocity-section .embed-container iframe {
     box-shadow: 0 0 10px #ff5500;
 }
+
+/* Embedding and Toggle for Velocity Songs */
+#velocity-toggle {
+    background-color: #ff5500;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+}
+
+#velocity-toggle:hover {
+    background-color: #e04e00;
+}
