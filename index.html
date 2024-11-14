@@ -1,51 +1,366 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Embed Toggle</title>
-    <link rel="stylesheet" href="style.css">
+<html><head><base href="." />
+<title>XDan</title>
+<meta property="og:title" content="XDan">
+<meta property="og:description" content="Music Producer 🗣️🔥">
+<style>
+:root {
+  --purple-glow: #9d4edd;
+  --orange-glow: #ff6b35;
+}
+
+body {
+  background-color: #1a1a1a;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Add fade-in animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  width: 100%;
+  position: relative;
+  gap: 0.5rem;
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards 1.5s;
+}
+
+.logo-container {
+  position: absolute;
+  left: 50%;
+  top: 50vh;
+  transform: translate(-50%, -50%);
+  transition: all 1s ease;
+}
+
+.logo-container.slide {
+  left: calc(50% - 150px);
+  top: 0;
+  transform: translateX(-50%);
+}
+
+.logo-image {
+  width: 200px;
+  height: auto;
+  filter: drop-shadow(0 0 20px var(--purple-glow));
+  animation: pulsate 2s infinite;
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-left: 0.25rem;
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 1s ease;
+  color: white;
+  text-shadow: 0 0 20px var(--purple-glow);
+  visibility: hidden;
+}
+
+.title.visible {
+  opacity: 1;
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.category {
+  width: 80%;
+  max-width: 800px;
+  margin: 1rem 0;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.5s ease forwards 2s;
+}
+
+.category:nth-child(1) {
+  animation-delay: 2.2s;
+}
+
+.category:nth-child(2) {
+  animation-delay: 2.4s;
+}
+
+.category:nth-child(3) {
+  animation-delay: 2.6s;
+}
+
+.category-header {
+  padding: 1rem 2rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.purple-category .category-header {
+  background: linear-gradient(45deg, #6b2b93, var(--purple-glow));
+  box-shadow: 0 0 15px var(--purple-glow);
+}
+
+.orange-category .category-header {
+  background: linear-gradient(45deg, #cc5529, var(--orange-glow));
+  box-shadow: 0 0 15px var(--orange-glow);
+}
+
+.category-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  background-color: rgba(0,0,0,0.5);
+  padding: 0 2rem;
+}
+
+.category.active .category-content {
+  max-height: 1000px;
+  padding: 2rem;
+}
+
+.arrow {
+  transform: rotate(0deg);
+  transition: transform 0.3s ease;
+}
+
+.category.active .arrow {
+  transform: rotate(180deg);
+}
+
+@keyframes pulsate {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.content-item {
+  background-color: rgba(255,255,255,0.1);
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.purple-category .content-item {
+  box-shadow: 0 0 15px var(--purple-glow);
+}
+
+.orange-category .content-item {
+  box-shadow: 0 0 15px var(--orange-glow);
+}
+
+.button-container {
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards 2s;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  width: 80%;
+  max-width: 800px;
+  margin: 2rem 0;
+}
+
+.button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.purple-button {
+  background: linear-gradient(45deg, #6b2b93, var(--purple-glow));
+  color: white;
+  box-shadow: 0 0 10px var(--purple-glow);
+}
+
+.purple-button:hover {
+  box-shadow: 0 0 20px var(--purple-glow);
+  transform: translateY(-2px);
+}
+
+.green-button {
+  background: transparent;
+  color: #00ff00;
+  border: 2px solid #00ff00;
+  box-shadow: 0 0 10px #00ff00;
+}
+
+.green-button:hover {
+  background: rgba(0, 255, 0, 0.1);
+  box-shadow: 0 0 20px #00ff00;
+  transform: translateY(-2px);
+}
+
+.bottom-button {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.5s ease forwards;
+  animation-delay: 2.8s;
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <div class="title">
-            <img src="logo.png" alt="Logo" class="logo">
-            <h1>Embed Toggle Example</h1>
-        </div>
 
-        <!-- Youtube Section -->
-        <div class="embed-container">
-            <button id="youtube-toggle">Show Videos</button>
-            <div id="youtube-embeds" class="hidden">
-                <iframe src="https://www.youtube.com/embed/4QleyhKnp-Q" allowfullscreen></iframe>
-                <iframe src="https://www.youtube.com/embed/D-X5qZ33vx4" allowfullscreen></iframe>
-                <iframe src="https://www.youtube.com/embed/2waEBFld8Ss" allowfullscreen></iframe>
-                <iframe src="https://www.youtube.com/embed/_oi2YWnxjow" allowfullscreen></iframe>
-                <iframe src="https://www.youtube.com/embed/o_r2I5kAqB8" allowfullscreen></iframe>
-            </div>
-        </div>
+<div class="header-container fade-in">
+  <div class="logo-container">
+    <img src="icon1.png" alt="XDan logo - stylized purple and black cosmic X design with nebula effects" class="logo-image">
+  </div>
+  <h1 class="title">XDan</h1>
+</div>
 
-        <!-- Spotify Section -->
-        <div class="embed-container">
-            <button id="spotify-toggle">Show Spotify</button>
-            <div id="spotify-embeds" class="hidden">
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/0YCoeqoiDdWGEanD2b3pp9" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media;"></iframe>
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/0iSPB0TO4PDqoJtD1URIqt" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media;"></iframe>
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/0gxxvSvvl02pT4aJrDd2Q4" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media;"></iframe>
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/3auJjgLKZ7BxGyuTa4nPNd" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media;"></iframe>
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/6Xa6ecdjlneMTG1rFmYrFn" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media;"></iframe>
-            </div>
-        </div>
+<div class="button-container fade-in">
+  <a href="https://xdan.uk" class="button purple-button">Socials</a>
+  <a href="https://xdan.uk/triangles" class="button purple-button">Triangles</a>
+  <a href="https://xdan.uk/shapes" class="button purple-button">Shapes</a>
+  <a href="https://xdan.uk/constellations" class="button purple-button">Constellations</a>
+  <a href="https://xdan.uk/Keyboard" class="button purple-button">Keyboard Tester</a>
+</div>
 
-        <!-- Velocity Section -->
-        <div class="velocity-section">
-            <button id="velocity-toggle">Show Velocity</button>
-            <div id="velocity-embeds" class="hidden">
-                <iframe src="https://www.youtube.com/embed/some-video-id" allowfullscreen></iframe>
-                <iframe src="https://www.youtube.com/embed/another-video-id" allowfullscreen></iframe>
-            </div>
-        </div>
+<div class="category purple-category fade-in">
+  <div class="category-header">
+    <h2>YouTube Videos</h2>
+    <span class="arrow">▼</span>
+  </div>
+  <div class="category-content">
+    <div class="content-grid">
+      <div class="content-item">
+        <iframe width="100%" height="200" src="https://www.youtube.com/embed/GTqUZ5opxPc" 
+          frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="content-item">
+        <iframe width="100%" height="200" src="https://www.youtube.com/embed/D-X5qZ33vx4" 
+          frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="content-item">
+        <iframe width="100%" height="200" src="https://www.youtube.com/embed/2waEBFld8Ss" 
+          frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="content-item">
+        <iframe width="100%" height="200" src="https://www.youtube.com/embed/4QleyhKnp-Q" 
+          frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="content-item">
+        <iframe width="100%" height="200" src="https://www.youtube.com/embed/_oi2YWnxjow" 
+          frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="content-item">
+        <iframe width="100%" height="200" src="https://www.youtube.com/embed/o_r2I5kAqB8" 
+          frameborder="0" allowfullscreen></iframe>
+      </div>
     </div>
-    <script src="main.js"></script>
-</body>
-</html>
+  </div>
+</div>
+
+<div class="category purple-category fade-in">
+  <div class="category-header">
+    <h2>Spotify Albums</h2>
+    <span class="arrow">▼</span>
+  </div>
+  <div class="category-content">
+    <div class="content-grid">
+      <div class="content-item">
+        <iframe src="https://open.spotify.com/embed/album/0iSPB0TO4PDqoJtD1URIqt" 
+          width="100%" height="380" frameborder="0" allowtransparency="true" 
+          allow="encrypted-media"></iframe>
+      </div>
+      <div class="content-item">
+        <iframe src="https://open.spotify.com/embed/album/0gxxvSvvl02pT4aJrDd2Q4" 
+          width="100%" height="380" frameborder="0" allowtransparency="true" 
+          allow="encrypted-media"></iframe>
+      </div>
+      <div class="content-item">
+        <iframe src="https://open.spotify.com/embed/album/3auJjgLKZ7BxGyuTa4nPNd" 
+          width="100%" height="380" frameborder="0" allowtransparency="true" 
+          allow="encrypted-media"></iframe>
+      </div>
+      <div class="content-item">
+        <iframe src="https://open.spotify.com/embed/album/6Xa6ecdjlneMTG1rFmYrFn" 
+          width="100%" height="380" frameborder="0" allowtransparency="true" 
+          allow="encrypted-media"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="category orange-category fade-in">
+  <div class="category-header">
+    <h2>Velocity</h2>
+    <span class="arrow">▼</span>
+  </div>
+  <div class="category-content">
+    <div class="content-grid">
+      <div class="content-item">
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/5UWl4gtnDkmbA6xHuV7zYx?utm_source=generator" 
+          width="100%" height="352" frameBorder="0" allowfullscreen="" 
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+          loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="button-container bottom-button" style="margin-top: auto;">
+  <a href="https://xdan.uk/ram" class="button green-button">DOWNLOAD MORE RAM 🤑🤑</a>
+</div>
+
+<script>
+// Logo animation
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.querySelector('.logo-container').classList.add('slide');
+    document.querySelector('.title').classList.add('visible');
+  }, 1000);
+});
+
+// Category toggles
+document.querySelectorAll('.category-header').forEach(header => {
+  header.addEventListener('click', () => {
+    const category = header.parentElement;
+    const wasActive = category.classList.contains('active');
+    
+    // Close all categories
+    document.querySelectorAll('.category').forEach(cat => {
+      cat.classList.remove('active');
+    });
+    
+    // If the clicked category wasn't active, open it
+    if (!wasActive) {
+      category.classList.add('active');
+    }
+  });
+});
+</script>
+
+</body></html>
